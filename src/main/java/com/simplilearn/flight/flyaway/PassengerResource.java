@@ -59,17 +59,17 @@ public class PassengerResource {
         return Response.ok().build();
     }
     
-    @PUT
-    @Path("/{update/{2}")
-    @Consumes("application/json")
-    public Response updatePassenger(@PathParam("id") int id, Passenger Passenger){
-        PassengerDAO dao = new PassengerDAO();
-        int count = dao.updatePassenger(id, Passenger);
-        if(count==0){
-            return Response.status(Response.Status.BAD_REQUEST).build();
-        }
-        return Response.ok().build();
-    }
+  // @PUT
+   //@Path("/{update/{2}")
+   // @Consumes("application/json")
+    //public Response updatePassenger(@PathParam("id") int id, Passenger Passenger){
+       // PassengerDAO dao = new PassengerDAO();
+       // int count = dao.updatePassenger(id, Passenger);
+       // if(count==0){
+        //    return Response.status(Response.Status.BAD_REQUEST).build();
+       // }
+       // return Response.ok().build();
+    //}
     
     @DELETE
     @Path("/{id}")

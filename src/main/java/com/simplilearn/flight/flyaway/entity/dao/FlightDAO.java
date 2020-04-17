@@ -68,8 +68,9 @@ public class FlightDAO {
             query.setString("id",flight.getId());
             query.setString("departure",flight.getDeparture());
             query.setString("arrival",flight.getArrival());
-            query.setDate("departuredate",flight.getDepartureDate());
-            query.setDate("arrivaldate",flight.getArrivalDate());
+          query.setString("departuredate", flight.getDepartureDate());
+            
+            query.setString("arrivaldate",flight.getArrivalDate());
             int rowCount = query.executeUpdate();
             System.out.println("Rows affected: " + rowCount);
             tx.commit();

@@ -14,23 +14,26 @@ public class Flight {
 	private String id;
 	private String departure;
 	private String arrival;
-	private LocalDateTime departureDate;
-	private LocalDateTime arrivalDate;
+	private String departureDate;
+	private String arrivalDate;
 	
 	@ManyToMany(mappedBy = "flights", fetch = FetchType.LAZY)
 	private Set<FlightBooking> bookings;
 
 	public Flight() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public Flight(String id, String departure, String arrival, LocalDateTime departureDate, LocalDateTime arrivalDate) {
+	public Flight(String id, String departure, String arrival, String departureDate, String arrivalDate,
+			Set<FlightBooking> bookings) {
 		super();
 		this.id = id;
 		this.departure = departure;
 		this.arrival = arrival;
 		this.departureDate = departureDate;
 		this.arrivalDate = arrivalDate;
+		this.bookings = bookings;
 	}
 
 	public String getId() {
@@ -57,19 +60,19 @@ public class Flight {
 		this.arrival = arrival;
 	}
 
-	public LocalDateTime getDepartureDate() {
+	public String getDepartureDate() {
 		return departureDate;
 	}
 
-	public void setDepartureDate(LocalDateTime departureDate) {
+	public void setDepartureDate(String departureDate) {
 		this.departureDate = departureDate;
 	}
 
-	public LocalDateTime getArrivalDate() {
+	public String getArrivalDate() {
 		return arrivalDate;
 	}
 
-	public void setArrivalDate(LocalDateTime arrivalDate) {
+	public void setArrivalDate(String arrivalDate) {
 		this.arrivalDate = arrivalDate;
 	}
 
@@ -84,7 +87,8 @@ public class Flight {
 	@Override
 	public String toString() {
 		return "Flight [id=" + id + ", departure=" + departure + ", arrival=" + arrival + ", departureDate="
-				+ departureDate + ", arrivalDate=" + arrivalDate + "]";
+				+ departureDate + ", arrivalDate=" + arrivalDate + ", bookings=" + bookings + "]";
 	}
 
+	
 }
