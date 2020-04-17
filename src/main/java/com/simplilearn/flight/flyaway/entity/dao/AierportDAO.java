@@ -7,6 +7,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.simplilearn.flight.flyaway.entity.Airport;
+import com.simplilearn.flight.flyaway.entity.Flight;
+import com.simplilearn.flight.flyaway.entity.FlightBooking;
+import com.simplilearn.flight.flyaway.entity.Passenger;
 import com.simplilearn.flight.flyaway.entity.util.SessionUtil;
 
 public class AierportDAO {
@@ -27,6 +30,29 @@ public class AierportDAO {
         airport.setName(bean.getName());        
         session.save(airport);
     }
+        
+	/* private void addAirport(Session session, Flight bean){
+        Flight flight = new Flight();
+       
+        flight.setId(bean.getId());
+    	flight.setDeparture(bean.getDeparture());
+    	flight.setArrival(bean.getArrival());
+    	flight.setDepartureDate(bean.getDepartureDate());
+    	flight.setArrivalDate(bean.getArrivalDate());
+    	session.save(flight); */
+        
+    /*private void addAirport(Session session, FlightBooking bean){
+        FlightBooking flightbooking = new FlightBooking();
+        flightbooking.setId(bean.getId());
+    	flightbooking.setPassenger(bean.getPassenger());
+    	session.save(flightbooking); */
+	
+	/* private void addAirport(Session session, Passenger bean){
+		Passenger passenger = new Passenger();
+		passenger.setId(bean.getId());
+		passenger.setPassenger(bean.getPassenger());
+		session.save(passenger); 
+    	}*/
     
     public List<Airport> getAirports(){
         Session session = SessionUtil.getSession();    

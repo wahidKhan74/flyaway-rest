@@ -13,6 +13,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 import com.simplilearn.flight.flyaway.entity.Airport;
+import com.simplilearn.flight.flyaway.entity.Flight;
+import com.simplilearn.flight.flyaway.entity.FlightBooking;
+import com.simplilearn.flight.flyaway.entity.Passenger;
 import com.simplilearn.flight.flyaway.entity.dao.AierportDAO;
 
 
@@ -29,18 +32,48 @@ public class AirportResource {
  
     
     @POST
+    @Path("/create")
     @Consumes("application/json")
+    
     public Response addAirport(Airport airport){
-    	
-                       
+    	airport.setIataCode(airport.getIataCode());
+    	airport.setName(airport.getName());
+    	airport.setCountryIsoCode(airport.getCountryIsoCode());
         AierportDAO dao = new AierportDAO();
         dao.addAirport(airport);
-        
-        return Response.ok().build();
-    }
+        return Response.ok().build(); 
     
+    
+    /*public Response addAirport(Flight flight){
+    	flight.setId(flight.getId());
+    	flight.setDeparture(flight.getDeparture());
+    	flight.setArrival(flight.getArrival());
+    	flight.setDepartureDate(flight.getDepartureDate());
+    	flight.setArrivalDate(flight.getArrivalDate());
+        AierportDAO dao = new AierportDAO();
+        dao.addAirport(flight);      
+        return Response.ok().build();*/
+    
+    /*public Response addAirport(FlightBooking flightbooking){
+		flightbooking.setId(flightbooking.getId());
+		flightbooking.setPassenger(flightbooking.getPassenger());
+		AierportDAO dao = new AierportDAO();
+    	dao.addAirport(flightbooking);
+    	return Response.ok().build();*/
+    
+    
+   /* public Response addAirport(Passenger passenger){
+    	passenger.setFirstName(passenger.getFirstName());
+    	passenger.setLastName(passenger.getLastName());
+    	passenger.setEmail(passenger.getEmail());
+        AierportDAO dao = new AierportDAO();
+        dao.addAirport(passenger);
+        return Response.ok().build();*/
+        
+        
+    }
     @PUT
-    @Path("/{id}")
+    @Path("/{2}")
     @Consumes("application/json")
     public Response updateAirport(@PathParam("id") int id, Airport airport){
         AierportDAO dao = new AierportDAO();
@@ -52,7 +85,7 @@ public class AirportResource {
     }
     
     @DELETE
-    @Path("/{id}")
+    @Path("/{3}")
     @Consumes("application/json")
     public Response deleteAirport(@PathParam("id") int id){
         AierportDAO dao = new AierportDAO();
