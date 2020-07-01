@@ -60,7 +60,7 @@ public class FlightBookingDAO {
             
             query.setInteger("id",id);
             query.setString("id",flightbooking.getId());
-            query.setString("passenger",flightbooking.getPassenger());
+//            query.setString("passenger",flightbooking.getPassenger());
            
             int rowCount = query.executeUpdate();
             System.out.println("Rows affected: " + rowCount);

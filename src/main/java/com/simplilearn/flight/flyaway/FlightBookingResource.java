@@ -16,7 +16,7 @@ import com.simplilearn.flight.flyaway.entity.FlightBooking;
 import com.simplilearn.flight.flyaway.entity.dao.FlightBookingDAO;
 
 
-@Path("/FlightBookings")
+@Path("/flightBookings")
 	public class FlightBookingResource {
 		@GET
 	    @Produces("application/json")

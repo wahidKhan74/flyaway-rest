@@ -24,7 +24,6 @@ public class PassengerDAO {
         Passenger passenger = new Passenger();
       passenger.setEmail(bean.getEmail());
       passenger.setFirstName(bean.getFirstName());
-      passenger.setId(bean.getId());
       passenger.setLastName(bean.getLastName());
       passenger.setPassword(bean.getPassword());
         session.save(passenger);
@@ -39,10 +38,16 @@ public class PassengerDAO {
     }
     
     public Passenger getPassengerByEmail(Passenger passenger){ 
+    	Passenger passengers = null;
         Session session = SessionUtil.getSession();    
-        Query query = session.createQuery("from Passenger where email:=email");
+        Query query = session.createQuery("from Passenger where email=: email");
         query.setParameter("email", passenger.getEmail());
-        Passenger passengers =  (Passenger)query.getResultList().get(0);
+        try {
+        	passengers =  (Passenger)query.getResultList().get(0);
+		} catch (Exception e) {
+			passengers = null;
+		}
+        
         session.close();
         return passengers;
     }

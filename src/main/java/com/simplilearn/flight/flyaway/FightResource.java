@@ -15,7 +15,7 @@ import javax.ws.rs.core.Response;
 import com.simplilearn.flight.flyaway.entity.Flight;
 import com.simplilearn.flight.flyaway.entity.dao.FlightDAO;
 
-@Path("/Flights")
+@Path("/flights")
 public class FightResource {
 	
 	@GET

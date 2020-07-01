@@ -15,11 +15,17 @@ import com.simplilearn.flight.flyaway.entity.util.SessionUtil;
 public class AierportDAO {
 	
 	public void addAirport(Airport bean){
-        Session session = SessionUtil.getSession();        
-        Transaction tx = session.beginTransaction();
-        addAirport(session,bean);        
-        tx.commit();
-        session.close();
+		Session session = SessionUtil.getSession();
+		try {
+	        Transaction tx = session.beginTransaction();
+	        addAirport(session,bean);        
+	        tx.commit();	        
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+        
         
     }
     
@@ -55,10 +61,16 @@ public class AierportDAO {
     	}*/
     
     public List<Airport> getAirports(){
-        Session session = SessionUtil.getSession();    
-        Query query = session.createQuery("from Airport");
-        List<Airport> airports =  query.list();
-        session.close();
+        Session session = SessionUtil.getSession();
+        List<Airport> airports = null;
+        try {
+        	 Query query = session.createQuery("from Airport");
+             airports =  query.list();
+             session.close();
+             
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
         return airports;
     }
  
